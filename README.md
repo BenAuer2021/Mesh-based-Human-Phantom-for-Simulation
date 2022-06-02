@@ -24,6 +24,12 @@ We refered readers interested on the generation, usage, and validation of this p
 
 ### STL-based phantoms
 
+We provide 3 versions of the phantom with different lengths (**Whole Body**, **Head-Torso-Abdominal Only**, and **Head Only**) as showed on the figure below.
+
+<p align="center">
+<img width="645" alt="Screen Shot 2022-06-02 at 4 41 26 PM" src="https://user-images.githubusercontent.com/84809217/171734381-dd43d63c-b9fa-44b8-b05b-e19b0a865efa.png">
+</p>
+  
 The 3 phantom versions consist of the following structures,
 
 - **Whole Body:**<br/>
@@ -37,8 +43,10 @@ The 3 phantom versions consist of the following structures,
   | Bronchi Tree  | 18.3 x 9.8 x 10.8  | 5.2  | 5,306 | 0.26 | 
   | Liver   | 18.9 x 19.1 x 18.7  | 1,798.7  | 3,698 | 0.18 | 
   | Lungs   | 24.1 x 18.0 x 22.1  | 2,804.7  | 5,354 | 0.27 | 
-  
-  PLUS PICTURE
+
+  <p align="center">
+  <img width="952" alt="Screen Shot 2022-06-02 at 5 04 18 PM" src="https://user-images.githubusercontent.com/84809217/171738071-79ae77d3-0ec6-4713-b0e9-b70489f9a0f5.png">
+  </p>
   
 - **Head-Torso-Abdominal Only:**<br/> 
   Brain, Liver, Lungs, Bronchi Tree, Air Cavity and Part of the Body and the Skeleton within the head, torso, and abdominal region. 
@@ -51,7 +59,10 @@ The 3 phantom versions consist of the following structures,
   | Bronchi Tree  | 18.3 x 9.8 x 10.8  | 5.2  | 5,306 | 0.26 | 
   | Liver   | 18.9 x 19.1 x 18.7  | 1,798.7  | 3,698 | 0.18 | 
   | Lungs   | 24.1 x 18.0 x 22.1  | 2,804.7  | 5,354 | 0.27 | 
-  
+
+  <p align="center">
+  <img width="963" alt="Screen Shot 2022-06-02 at 5 05 29 PM" src="https://user-images.githubusercontent.com/84809217/171738203-c567aeeb-069b-4de8-b30b-03a0196dbef1.png">
+  </p>
  
 - **Head Only:**<br/>
   Brain and Part of the Body, Skeleton, and Air Cavity within the head region.
@@ -62,7 +73,9 @@ The 3 phantom versions consist of the following structures,
   | Air Cavity (Head)   | 5.1 x 9.6 x 12.4  | 103.1  | 1,736 | 0.19 | 
   | Brain   | 13.0 x 16.9 x 13.8  | 1,322.8  | 7,518 | 0.38 | 
 
-Describe 3 phantoms in tables (triangles, plus volume, and size of each parts).
+  <p align="center">
+  <img width="862" alt="Screen Shot 2022-06-02 at 5 06 06 PM" src="https://user-images.githubusercontent.com/84809217/171738291-5b417726-5ea3-452e-90b2-b5876546448a.png">
+  </p>
 
 ### Voxelized version of the STL-based phantoms
 For attenuation correction or source definition.
