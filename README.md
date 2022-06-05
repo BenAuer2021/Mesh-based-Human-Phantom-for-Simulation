@@ -21,6 +21,8 @@ We refered readers interested on the generation, usage, and validation of this p
 --> Note, the phantom can be used as well in Geant4 or any other software enabling importation of such STL files.
 
 - Add references
+- 50% percentile, weight, age, etc...
+- Create a read me as the ICRP example for Geant4.
 
 ### STL-based phantoms
 
@@ -79,48 +81,115 @@ The 3 phantom versions consist of the following structures,
 
 ### Voxelized version of the STL-based phantoms
 
-We also provide voxelized versions in interfile format (16-bit unsigned integer, *.i33 for raw data and *.h33 for the header file) of the 3 STL-based phantoms described above. 
+We also provide voxelized versions in interfile format (16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header file) of the 3 STL-based phantoms described above. The voxelized phantoms can be used in attenuation correction for SPECT or PET reconstruction or as attenuation media or source definitionfor GATE simulation.
+
 <p align="center">
 <img width="1201" alt="Screen Shot 2022-06-05 at 2 51 39 PM" src="https://user-images.githubusercontent.com/84809217/172066089-1b02d124-c95c-4026-87d2-d52d7747ccf1.png">
 </p>
 
 The Body, Air Cavity, Brain, Bronchi Tree, Liver, Lungs, and Skeleton regions were set of values from 1 to 7 by increment of 1.
 
-The STL-based phantoms were converted into voxelized phantoms for use in attenuation correction or as source definition following an approach similar to the one described in (Patil and Ravi, 2005). 
+The STL-based phantoms were converted into voxelized phantoms following an approach similar to the one described in (Patil and Ravi, 2005). 
 
-The voxelized attenuation phantoms were generated for a voxel size of 1 $$mm^3$$. The Whole Body voxelized phantom was of 658x280x1764 $$mm^3$$ (size of 650 MB). The Head-Torso-Abdominal Only phantom was of 658x280x956 $$mm^3$$ (size of 352 MB). The Head Only phantom was of 338x248x256 $$mm^3$$ (size of 43 MB).
+The voxelized attenuation phantoms were generated for a voxel size of 1 <sup>3</sup>. The Whole Body voxelized phantom was of 658x280x1764 <sup>3</sup> (size of 650 MB). The Head-Torso-Abdominal Only phantom was of 658x280x956 <sup>3</sup> (size of 352 MB). The Head Only phantom was of 338x248x256 <sup>3</sup> (size of 43 MB).
 
 ## Usage in GATE
 
-We provide a macro 'GateSTLPhantoms.mac' to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
+We provide a macro *'GateSTLPhantoms.mac'* to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
+
+We desribe the GATE command lines to import the STL-based whole-body phantoms. Importation is similar for the Head and Head-Torso-Abdominal phantoms.
+All the phantom internal structures (Skeleton, Liver, Lungs, Bronchi Tree, Brain, and Air Cavity) are part of the Body volume. The body volume can be set as a sub-volume of the world, SPECTHead, or any other volumes emcompassing its size. Examples of biological material composition from the ICRP and the ICRU of the STL-based human structures are provided below ([Geant4 ICRP110_HumanPhantoms Example](https://gitlab.physik.uni-kiel.de/geant4/geant4/-/blob/dab42d20185975fb0910dadfc6aa9998d9d9e06d/examples/advanced/ICRP110_HumanPhantoms/src/ICRP110PhantomMaterial_Male.cc), [GATE Example](https://github.com/OpenGATE/GateContrib/blob/master/dosimetry/Radiotherapy/example2/data/GateMaterials.db)). 
+
 
 ```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
+/gate/SPECThead/daughters/name Body
+/gate/SPECThead/daughters/insert tessellated
+/gate/Body/geometry/setPathToSTLFile PATH_TO/Body.stl
+/gate/Body/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Body/setMaterial Water
+/gate/Body/vis/setColor blue
+/gate/Body/vis/forceSolid
+/gate/Body/attachPhantomSD
+
+/gate/Body/daughters/name Lung
+/gate/Body/daughters/insert tessellated
+/gate/Lung/geometry/setPathToSTLFile PATH_TO/Lung.stl
+/gate/Lung/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Lung/setMaterial Lung
+/gate/Lung/vis/setColor blue
+/gate/Lung/vis/forceSolid
+/gate/Lung/attachPhantomSD
+
+/gate/Body/daughters/name Skeleton
+/gate/Body/daughters/insert tessellated
+/gate/Skeleton/geometry/setPathToSTLFile PATH_TO/Skeleton.stl
+/gate/Skeleton/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Skeleton/setMaterial SpineBone
+/gate/Skeleton/vis/setColor cyan
+/gate/Skeleton/vis/forceSolid
+/gate/Skeleton/attachPhantomSD
+
+/gate/Body/daughters/name Brain
+/gate/Body/daughters/insert tessellated
+/gate/Brain/geometry/setPathToSTLFile PATH_TO/Brain.stl
+/gate/Brain/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Brain/setMaterial Brain
+/gate/Brain/vis/setColor cyan
+/gate/Brain/vis/forceSolid
+/gate/Brain/attachPhantomSD
+
+/gate/Body/daughters/name Liver
+/gate/Body/daughters/insert tessellated
+/gate/Liver/geometry/setPathToSTLFile PATH_TO/Liver.stl
+/gate/Liver/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Liver/setMaterial Liver
+/gate/Liver/vis/setColor cyan
+/gate/Liver/vis/forceSolid
+/gate/Liver/attachPhantomSD
+
+/gate/Body/daughters/name AirCavity
+/gate/Body/daughters/insert tessellated
+/gate/AirCavity/geometry/setPathToSTLFile PATH_TO/Air_cavity.stl
+/gate/AirCavity/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/AirCavity/setMaterial Air
+/gate/AirCavity/vis/setColor cyan
+/gate/AirCavity/vis/forceSolid
+/gate/AirCavity/attachPhantomSD
 ```
 
-Body main
+The *Bronchi Tree* is a subvolume of the Lung volume,
+```ruby
+/gate/SPECThead/daughters/name Body
+/gate/SPECThead/daughters/insert tessellated
+/gate/Body/geometry/setPathToSTLFile PATH_TO/Body.stl
+/gate/Body/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/Body/setMaterial Water
+/gate/Body/vis/setColor blue
+/gate/Body/vis/forceSolid
+/gate/Body/attachPhantomSD
+``` 
 
-Bronchi subvolume of lung
+The voxelized phantoms (interfile format) can be loaded in GATE via the following command lines, where 'VoxSource' is the source volume name,
+```ruby
+/gate/source/addSource                                            VoxSource voxel
+/gate/source/VoxSource/reader/insert                              image
+/gate/source/VoxSource/imageReader/translator/insert              linear
+/gate/source/VoxSource/imageReader/linearTranslator/setScale      0.001 Bq
+/gate/source/VoxSource/imageReader/readFile PATH_TO/WholeBody_Assembled_658x280x1764.h33 
+# OR Head_Assembled_338x248x256 OR HeadTorsoAbd_Assembled_658x280x956
+/gate/source/VoxSource/imageReader/verbose 1
+/gate/source/VoxSource/gps/particle gamma
+/gate/source/VoxSource/gps/angtype iso
+/gate/source/VoxSource/gps/energy 140.5 keV # For Tc-99m
+```
+The default position of the voxelized source is in the 1<sup>st</sup> quarter, so the voxelized source has to be shifted over half its dimension in the negative direction on each axis. As the voxel size is 1 mm<sup>3</sup>, dimensions of the image (*provided in the file name*) need to be divided by two along X, Y, Z dimensions.
 
-How to load STL file (one command lines).
+This results in the addition of the following two lines,
 
-Then voxelized how to load
-
-
-
-How to use in GATE STL and Voxelized?
-- Command Lines in GATE
-
-List of 
-
-https://github.com/OpenGATE/GateContrib/blob/master/dosimetry/Radiotherapy/example2/data/GateMaterials.db
-https://gitlab.physik.uni-kiel.de/geant4/geant4/-/blob/dab42d20185975fb0910dadfc6aa9998d9d9e06d/examples/advanced/ICRP110_HumanPhantoms/src/ICRP110PhantomMaterial_Male.cc
-
-
-
-
+```ruby
+/gate/source/hof_brain/setPosition -329.0 -140.0 -882.0 mm
+/gate/source/list
+```
 
 ## Citation of the following articles if used
 
