@@ -78,13 +78,47 @@ The 3 phantom versions consist of the following structures,
   </p>
 
 ### Voxelized version of the STL-based phantoms
-For attenuation correction or source definition.
-Describe 
 
+We also provide voxelized versions in interfile format (16-bit unsigned integer, *.i33 for raw data and *.h33 for the header file) of the 3 STL-based phantoms described above. 
+<p align="center">
+<img width="1201" alt="Screen Shot 2022-06-05 at 2 51 39 PM" src="https://user-images.githubusercontent.com/84809217/172066089-1b02d124-c95c-4026-87d2-d52d7747ccf1.png">
+</p>
+
+The Body, Air Cavity, Brain, Bronchi Tree, Liver, Lungs, and Skeleton regions were set of values from 1 to 7 by increment of 1.
+
+The STL-based phantoms were converted into voxelized phantoms for use in attenuation correction or as source definition following an approach similar to the one described in (Patil and Ravi, 2005). 
+
+The voxelized attenuation phantoms were generated for a voxel size of 1 $$mm^3$$. The Whole Body voxelized phantom was of 658x280x1764 $$mm^3$$ (size of 650 MB). The Head-Torso-Abdominal Only phantom was of 658x280x956 $$mm^3$$ (size of 352 MB). The Head Only phantom was of 338x248x256 $$mm^3$$ (size of 43 MB).
 
 ## Usage in GATE
+
+We provide a macro 'GateSTLPhantoms.mac' to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
+
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+
+Body main
+
+Bronchi subvolume of lung
+
+How to load STL file (one command lines).
+
+Then voxelized how to load
+
+
+
 How to use in GATE STL and Voxelized?
 - Command Lines in GATE
+
+List of 
+
+https://github.com/OpenGATE/GateContrib/blob/master/dosimetry/Radiotherapy/example2/data/GateMaterials.db
+https://gitlab.physik.uni-kiel.de/geant4/geant4/-/blob/dab42d20185975fb0910dadfc6aa9998d9d9e06d/examples/advanced/ICRP110_HumanPhantoms/src/ICRP110PhantomMaterial_Male.cc
+
+
 
 
 
