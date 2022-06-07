@@ -123,7 +123,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 ```ruby
 /gate/SPECThead/daughters/name Body
 /gate/SPECThead/daughters/insert tessellated
-/gate/Body/geometry/setPathToSTLFile PATH_TO/Body.stl
+/gate/Body/geometry/setPathToSTLFile PATH_TO/WholeBody_Body.stl
 /gate/Body/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/Body/setMaterial Water
 /gate/Body/vis/setColor blue
@@ -132,7 +132,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 /gate/Body/daughters/name Lung
 /gate/Body/daughters/insert tessellated
-/gate/Lung/geometry/setPathToSTLFile PATH_TO/Lung.stl
+/gate/Lung/geometry/setPathToSTLFile PATH_TO/WholeBody_Lungs.stl
 /gate/Lung/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/Lung/setMaterial Lung
 /gate/Lung/vis/setColor blue
@@ -141,7 +141,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 /gate/Body/daughters/name Skeleton
 /gate/Body/daughters/insert tessellated
-/gate/Skeleton/geometry/setPathToSTLFile PATH_TO/Skeleton.stl
+/gate/Skeleton/geometry/setPathToSTLFile PATH_TO/WholeBody_Skeleton.stl
 /gate/Skeleton/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/Skeleton/setMaterial SpineBone
 /gate/Skeleton/vis/setColor cyan
@@ -150,7 +150,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 /gate/Body/daughters/name Brain
 /gate/Body/daughters/insert tessellated
-/gate/Brain/geometry/setPathToSTLFile PATH_TO/Brain.stl
+/gate/Brain/geometry/setPathToSTLFile PATH_TO/WholeBody_Brain.stl
 /gate/Brain/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/Brain/setMaterial Brain
 /gate/Brain/vis/setColor cyan
@@ -159,7 +159,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 /gate/Body/daughters/name Liver
 /gate/Body/daughters/insert tessellated
-/gate/Liver/geometry/setPathToSTLFile PATH_TO/Liver.stl
+/gate/Liver/geometry/setPathToSTLFile PATH_TO/WholeBody_Liver.stl
 /gate/Liver/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/Liver/setMaterial Liver
 /gate/Liver/vis/setColor cyan
@@ -168,7 +168,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 /gate/Body/daughters/name AirCavity
 /gate/Body/daughters/insert tessellated
-/gate/AirCavity/geometry/setPathToSTLFile PATH_TO/Air_cavity.stl
+/gate/AirCavity/geometry/setPathToSTLFile PATH_TO/WholeBody_AirCavity.stl
 /gate/AirCavity/placement/setTranslation 0.0   0.0   0.0  cm
 /gate/AirCavity/setMaterial Air
 /gate/AirCavity/vis/setColor cyan
@@ -178,14 +178,14 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 
 The *Bronchi Tree* is a subvolume of the Lung volume,
 ```ruby
-/gate/SPECThead/daughters/name Body
-/gate/SPECThead/daughters/insert tessellated
-/gate/Body/geometry/setPathToSTLFile PATH_TO/Body.stl
-/gate/Body/placement/setTranslation 0.0   0.0   0.0  cm
-/gate/Body/setMaterial Water
-/gate/Body/vis/setColor blue
-/gate/Body/vis/forceSolid
-/gate/Body/attachPhantomSD
+/gate/Lung/daughters/name BronchiTree
+/gate/Lung/daughters/insert tessellated
+/gate/BronchiTree/geometry/setPathToSTLFile PATH_TO/WholeBody_BronchiTree.stl
+/gate/BronchiTree/placement/setTranslation 0.0   0.0   0.0  cm
+/gate/BronchiTree/setMaterial Water
+/gate/BronchiTree/vis/setColor blue
+/gate/BronchiTree/vis/forceSolid
+/gate/BronchiTree/attachPhantomSD
 ``` 
 
 ## 3.2 Voxelized version of the STL-based phantoms
@@ -196,7 +196,7 @@ The voxelized phantoms (interfile format) can be loaded in GATE via the followin
 /gate/source/VoxSource/reader/insert                              image
 /gate/source/VoxSource/imageReader/translator/insert              linear
 /gate/source/VoxSource/imageReader/linearTranslator/setScale      0.001 Bq
-/gate/source/VoxSource/imageReader/readFile PATH_TO/WholeBody_Assembled_658x280x1764.h33 
+/gate/source/VoxSource/imageReader/readFile PATH_TO/VoxWholeBody_658x280x1764.h33 
 # OR Head_Assembled_338x248x256 OR HeadTorsoAbd_Assembled_658x280x956
 /gate/source/VoxSource/imageReader/verbose 1
 /gate/source/VoxSource/gps/particle gamma
@@ -208,7 +208,7 @@ The default position of the voxelized source is in the 1<sup>st</sup> quarter, s
 This results in the addition of the following two lines,
 
 ```ruby
-/gate/source/hof_brain/setPosition -329.0 -140.0 -882.0 mm
+/gate/source/VoxSource/setPosition -329.0 -140.0 -882.0 mm
 /gate/source/list
 ```
 
@@ -216,7 +216,7 @@ The voxelized phantoms can also be used as attenuation map in GATE via the follo
 ```ruby
 /gate/SPECThead/daughters/name VoxAttn
 /gate/SPECThead/daughters/insert ImageRegularParametrisedVolume
-/gate/VoxAttn/geometry/setImage PATH_TO/WholeBody_Assembled_658x280x1764.h33
+/gate/VoxAttn/geometry/setImage PATH_TO/VoxWholeBody_658x280x1764.h33
 /gate/VoxAttn/geometry/setRangeToMaterialFile AttnRange.dat
 /gate/VoxAttn/placement/setTranslation  0. 0. 0. mm
 /gate/VoxAttn/setSkipEqualMaterials 1
