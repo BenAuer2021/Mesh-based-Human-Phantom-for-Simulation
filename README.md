@@ -24,7 +24,7 @@ We refered readers interested on the generation, usage, and validation of this p
 - 50% percentile, weight, age, etc...
 - Create a read me as the ICRP example for Geant4.
 
-### STL-based phantoms
+###### STL-based phantoms
 
 We provide 3 versions of the phantom with different lengths (**Whole Body**, **Head-Torso-Abdominal Only**, and **Head Only**) as showed on the figure below.
 
@@ -79,7 +79,7 @@ The 3 phantom versions consist of the following structures,
   <img width="862" alt="Screen Shot 2022-06-02 at 5 06 06 PM" src="https://user-images.githubusercontent.com/84809217/171738291-5b417726-5ea3-452e-90b2-b5876546448a.png">
   </p>
 
-### Voxelized version of the STL-based phantoms
+###### Voxelized version of the STL-based phantoms
 
 We also provide voxelized versions in interfile format (16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header file) of the 3 STL-based phantoms described above. The voxelized phantoms can be used in attenuation correction for SPECT or PET reconstruction or as attenuation media or source definitionfor GATE simulation.
 
@@ -95,7 +95,7 @@ The voxelized attenuation phantoms were generated for a voxel size of 1 <sup>3</
 
 ## Usage in GATE
 
-#STL-based phantoms
+###### STL-based phantoms
 
 We provide a macro *'GateSTLPhantoms.mac'* to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
 
@@ -171,7 +171,7 @@ The *Bronchi Tree* is a subvolume of the Lung volume,
 /gate/Body/attachPhantomSD
 ``` 
 
-#Voxelized version of the STL-based phantoms
+###### Voxelized version of the STL-based phantoms
 
 The voxelized phantoms (interfile format) can be loaded in GATE via the following command lines, where 'VoxSource' is the source volume name,
 ```ruby
