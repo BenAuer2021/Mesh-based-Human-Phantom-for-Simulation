@@ -12,10 +12,10 @@ Table of contents:
 ```diff
 - 1. Objective and Background
 - 2. Description
-  - 2.1 STL-based phantoms (**mesh50_XCAT**)
+  - 2.1 STL-based phantoms (mesh50_XCAT)
   - 2.2 Voxelized version of the STL-based phantoms
 - 3. Usage in GATE
-  - 3.1 STL-based phantoms (**mesh50_XCAT**)
+  - 3.1 STL-based phantoms (mesh50_XCAT)
   - 3.2 Voxelized version of the STL-based phantoms 
 ```
 
@@ -25,13 +25,13 @@ Table of contents:
 > The **mesh50_XCAT** phantom provides realistic description of the human body for use in medical research, such as imaging, dosimetry, or radiation therapy. Simulation of such phantoms via adequate software capable of modelling mesh-based structures can emulate realistic medical data close to those obtained for actual patients.
 
 ###### Background
-The Geant4 application for tomographic emission (GATE) remains one of the most commonly used simulation toolkits for medical research [GATE source page](http://www.opengatecollaboration.org) [^1]. GATE supports the simulation of Positron Emission Tomography (PET), Single Photon Emission Computed Tomography (SPECT), X-ray Computed Tomography (CT), optical, and Compton camera imaging, radiation therapy, and dosimetry in the same environment [^2]. 
+The Geant4 application for tomographic emission (GATE) remains one of the most commonly used simulation toolkits for medical research - [GATE source page](http://www.opengatecollaboration.org) [^1]. GATE supports the simulation of Positron Emission Tomography (PET), Single Photon Emission Computed Tomography (SPECT), X-ray Computed Tomography (CT), optical, and Compton camera imaging, radiation therapy, and dosimetry in the same environment [^2]. 
 
 Most of the simulation software allows building system and phantom geometries based on the combination of simple idealized volumes (i.e. primitives). However, primitives are limited to model accurately complex geometries. Recent GATE releases (version [8 and 9](http://www.opengatecollaboration.org)) alleviate these limitations by allowing the users to import triangulated surface meshes as stereo-lithography (STL) file format, thus enabling improved accuracy of simulation of phantom geometries.
 
 Taking advantage of such capability, we developed an STL-based version of the XCAT digitial anthropomorphic phantom[^3][^4], named **mesh50_XCAT**, which provides an advanced anatomical description of the human body for simulation purposes.
 
-In agreement with the original developer team of the XCAT phantom, we distribute below free of charge (*see Download section*) three versions of the **mesh50_XCAT** phantom with different lengths (**Head only**, **Head-Torso-Abdominal only**, and **Whole Body**). We provide below a detailled description of the usage in GATE of the phantoms. It is understandable that the **mesh50_XCAT** phantom can be used in any software capable of importing STL files (e.g. Geant4) for multiple medical research purposes, such as imaging or dosimetry.
+In agreement with the original developer team of the XCAT phantom, we distribute below free of charge (*see attached files*) three versions of the **mesh50_XCAT** phantom with different lengths (**Head only**, **Head-Torso-Abdominal only**, and **Whole Body**). We provide below a detailled description of the usage in GATE of the phantoms. It is understandable that the **mesh50_XCAT** phantom can be used in any software capable of importing STL files (e.g. Geant4).
 
 We refer readers interested on the generation, usage, and validation of the **mesh50_XCAT** phantom in the context of brain SPECT imaging to our previous publications. We kindly ask users to cite the following publications in their work,
 > - Auer, B., Könik, A., Fromme, T.J., De Beenhouwer, J., Kalluri, K.S., Lindsay, C., Furenlid, L. R., Kuo, P.H. & King, M. A. (2022). Mesh Modelling of system geometry and anatomy phantoms for realistic GATE simulations and reconstruction, submitted for publication to Physics in Medicine and Biology.
@@ -73,7 +73,7 @@ The 3 **mesh50_XCAT** phantom versions consist of the following structures,
   | Structures | Size (cm x cm x cm) | Volumes (cm<sup>3</sup>) | # of Triangles | STL file size (MB) |
   |    :---     |     :---:  |     :---:     |    :---:      |    :---:  |
   | Body (Head-Torso-Abd)  | 65.8 x 28.0 x 95.6   | 53,869.5  | 15,502 | 0.77 |
-  | Skeleton (Head-Torso-Abd)   | 64.0 x 25.4 x 175.0  | 6,539.1  | 73,832 | 3.1 |   
+  | Skeleton (Head-Torso-Abd)   | 64.0 x 25.4 x 94.8  | 4,644.3  | 61,582 | 3.1 |   
   | Air Cavity   | 5.9 x 14.0 x 26.7  | 141.3  | 3,830 | 0.19 | 
   | Brain   | 13.0 x 16.9 x 13.8  | 1,322.8  | 7,518 | 0.38 | 
   | Bronchi Tree  | 18.3 x 9.8 x 10.8  | 5.2  | 5,306 | 0.26 | 
@@ -109,7 +109,7 @@ The *Body, Air Cavity, Brain, Bronchi Tree, Liver, Lungs, and Skeleton* regions 
 
 The STL-based (**mesh50_XCAT**) phantoms were converted into voxelized phantoms following an approach similar to the one described in this paper[^7]. 
 
-The voxelized attenuation phantoms were generated for a voxel size of 1 mm<sup>3</sup>. The Whole Body voxelized phantom was of 658x280x1764 mm<sup>3</sup> (size of 650 MB). The Head-Torso-Abdominal Only phantom was of 658x280x956 mm<sup>3</sup> (size of 352 MB). The Head Only phantom was of 338x248x256 mm<sup>3</sup> (size of 43 MB).
+The voxelized attenuation phantoms were generated for a voxel size of 1 mm<sup>3</sup>. The Whole Body voxelized phantom is of 658x280x1764 mm<sup>3</sup> (size of 650 MB). The Head-Torso-Abdominal Only phantom is of 658x280x956 mm<sup>3</sup> (size of 352 MB). The Head Only phantom is of 338x248x256 mm<sup>3</sup> (size of 43 MB).
 
 # 3. Usage in GATE
 
@@ -117,7 +117,7 @@ The voxelized attenuation phantoms were generated for a voxel size of 1 mm<sup>3
 
 We provide a macro *'GateSTLPhantoms.mac'* to load and simulate in GATE the STL-based (**mesh50_XCAT**) attenuation phantoms along with the voxelized source defined above. 
 
-We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phantom. Importation process is similar for the Head and Head-Torso-Abdominal **mesh50_XCAT** phantoms. All the **mesh50_XCAT** internal structures (*Skeleton, Liver, Lungs, Bronchi Tree, Brain, and Air Cavity*) are part of the Body volume. The body volume can be set as a sub-volume of the *world* or *SPECTHead*, or any other volumes emcompassing its size. Examples of biological material composition from the [**ICRP**](https://www.icrp.org) and the [**ICRU**](https://www.icru.org) of the STL-based human structures are provided below ([Geant4 ICRP110_HumanPhantoms Example](https://gitlab.physik.uni-kiel.de/geant4/geant4/-/blob/dab42d20185975fb0910dadfc6aa9998d9d9e06d/examples/advanced/ICRP110_HumanPhantoms/src/ICRP110PhantomMaterial_Male.cc), [GATE Example](https://github.com/OpenGATE/GateContrib/blob/master/dosimetry/Radiotherapy/example2/data/GateMaterials.db)). 
+We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phantom. Importation process is similar for the *Head* and *Head-Torso-Abdominal* **mesh50_XCAT** phantoms. All the **mesh50_XCAT** internal structures (*Skeleton, Liver, Lungs, Bronchi Tree, Brain, and Air Cavity*) are part of the *Body* volume. The *Body* volume can be set as a sub-volume of the *world* or *SPECTHead*, or any other volumes emcompassing its size. Examples of biological material composition from the [**ICRP**](https://www.icrp.org) and the [**ICRU**](https://www.icru.org) of the STL-based human structures are provided below ([Geant4 ICRP110_HumanPhantoms Example](https://gitlab.physik.uni-kiel.de/geant4/geant4/-/blob/dab42d20185975fb0910dadfc6aa9998d9d9e06d/examples/advanced/ICRP110_HumanPhantoms/src/ICRP110PhantomMaterial_Male.cc), [GATE Example](https://github.com/OpenGATE/GateContrib/blob/master/dosimetry/Radiotherapy/example2/data/GateMaterials.db)). 
 
 
 ```ruby
@@ -212,7 +212,7 @@ This results in the addition of the following two lines,
 /gate/source/list
 ```
 
-The voxelized phantoms can also be used as attenuation map in GATE via the following command lines. Note, the voxelized phantom should A. not collide with any other system components and B. be contained entirely within its 'mother' volume. The voxelized phantom can be a sub-volume of the *SPECThead* volume as shown below, 
+The voxelized phantoms can also be used as attenuation map in GATE via the following command lines. Note, the voxelized phantom should **A)** not collide with any other system components and **B)** be contained entirely within its 'mother' volume. The voxelized phantom can be a sub-volume of the *SPECThead* volume as shown below, 
 ```ruby
 /gate/SPECThead/daughters/name VoxAttn
 /gate/SPECThead/daughters/insert ImageRegularParametrisedVolume
