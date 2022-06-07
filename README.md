@@ -176,7 +176,7 @@ We desribe the GATE command lines to import the whole-body **mesh50_XCAT** phant
 /gate/AirCavity/attachPhantomSD
 ```
 
-The *Bronchi Tree* is a subvolume of the Lung volume,
+The *Bronchi Tree* is a subvolume of the *Lung* volume,
 ```ruby
 /gate/Lung/daughters/name BronchiTree
 /gate/Lung/daughters/insert tessellated
