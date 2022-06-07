@@ -95,6 +95,8 @@ The voxelized attenuation phantoms were generated for a voxel size of 1 <sup>3</
 
 ## Usage in GATE
 
+#STL-based phantoms
+
 We provide a macro *'GateSTLPhantoms.mac'* to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
 
 We desribe the GATE command lines to import the STL-based whole-body phantoms. Importation is similar for the Head and Head-Torso-Abdominal phantoms.
@@ -169,6 +171,8 @@ The *Bronchi Tree* is a subvolume of the Lung volume,
 /gate/Body/attachPhantomSD
 ``` 
 
+#Voxelized version of the STL-based phantoms
+
 The voxelized phantoms (interfile format) can be loaded in GATE via the following command lines, where 'VoxSource' is the source volume name,
 ```ruby
 /gate/source/addSource                                            VoxSource voxel
@@ -190,6 +194,31 @@ This results in the addition of the following two lines,
 /gate/source/hof_brain/setPosition -329.0 -140.0 -882.0 mm
 /gate/source/list
 ```
+
+The voxelized phantoms can also be used as attenuation map in GATE via the following command lines. Note, the voxelized phantom should not collide with any other system components and be contained entirely within its 'mother' volume. The voxelized phantom can be a sub-volume of the SPECThead volume as shown below, 
+```ruby
+/gate/SPECThead/daughters/name VoxAttn
+/gate/SPECThead/daughters/insert ImageRegularParametrisedVolume
+/gate/VoxAttn/geometry/setImage PATH_TO/WholeBody_Assembled_658x280x1764.h33
+/gate/VoxAttn/geometry/setRangeToMaterialFile AttnRange.dat
+/gate/VoxAttn/placement/setTranslation  0. 0. 0. mm
+/gate/VoxAttn/setSkipEqualMaterials 1
+/gate/VoxAttn/attachPhantomSD
+```
+Indices in the voxelized image are translated into material via the parameters defined in the 'AttnRange.dat' file. For example, we recommend the following indices to materials conversion,
+
+  | Image Indices | Human Structures | Biological material |
+  |    :---     |     :---:  |     :---:     |
+  | 0 |  Volume surrounding the body region of the phantom  | *Air* |
+  | 1   | Body  | *Water*  |
+  | 2   | Air Cavity  | *Air*  | 
+  | 3   | Brain  | *Brain*  |
+  | 4   | Bronchi Tree  | *Air*  |
+  | 5   | Liver  | *Liver*  |
+  | 6   | Lungs  | *Lung*  |  
+  | 7   | Skeleton  | *SpineBone*  |  
+  
+  Note, the biological materials are defined in the 'GateMaterials.db' file.
 
 ## Citation of the following articles if used
 
