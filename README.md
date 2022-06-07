@@ -212,7 +212,7 @@ This results in the addition of the following two lines,
 /gate/source/list
 ```
 
-The voxelized phantoms can also be used as attenuation map in GATE via the following command lines. Note, the voxelized phantom should **A)** not collide with any other system components and **B)** be contained entirely within its 'mother' volume. The voxelized phantom can be a sub-volume of the *SPECThead* volume as shown below, 
+The voxelized phantoms can also be used as attenuation map in GATE via the following command lines. Note, the voxelized phantom should **A)** not collide with any other system components and **B)** be contained entirely within its *'mother'* volume. The voxelized phantom can be a sub-volume of the *SPECThead* volume as shown below, 
 ```ruby
 /gate/SPECThead/daughters/name VoxAttn
 /gate/SPECThead/daughters/insert ImageRegularParametrisedVolume
@@ -224,7 +224,7 @@ The voxelized phantoms can also be used as attenuation map in GATE via the follo
 ```
 Indices in the voxelized image are translated into biological materials via the parameters defined in the *'AttnRange.dat'* file. For example, we recommend the following indices to materials conversion,
 
-  | Image Indices | Human Structures | Biological material |
+  | Image Indices | Human Structures | Biological materials |
   |    :---     |     :---:  |     :---:     |
   | 0 |  Volume surrounding the body region of the phantom  | *Air* |
   | 1   | Body  | *Water*  |
@@ -235,7 +235,7 @@ Indices in the voxelized image are translated into biological materials via the 
   | 6   | Lungs  | *Lung*  |  
   | 7   | Skeleton  | *SpineBone*  |  
   
-  Note, the biological materials are defined in the *'GateMaterials.db'* file.
+  Note, the biological materials are defined in the *'GateMaterials.db'* file available for download (*GATE_macros.zip*).
 
 [^1]: Jan, S., Santin, G., Strul, D., Staelens, S., Assié, K., Autret, D., ... & Morel, C. (2004). GATE: a simulation toolkit for PET and SPECT. Physics in Medicine & Biology, 49(19), 4543.
 [^2]: Sarrut, D., Bardiès, M., Boussion, N., Freud, N., Jan, S., Létang, J. M., ... & Buvat, I. (2014). A review of the use and potential of the GATE Monte Carlo simulation code for radiation therapy and dosimetry applications. Medical physics, 41(6Part1), 064301.
