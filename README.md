@@ -1,7 +1,14 @@
-# Mesh-based Human (XCAT) Phantom for Simulation
+# **MESH-BASED HUMAN (XCAT) PHANTOM FOR SIMULATION**
 
+```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
 
-## Description
+# 1. Description
 Simulation studies have been essential for advancing various developments in imaging, dosimetry, and radiation therapy. 
 
 The Geant4 application for tomographic emission (GATE) remains one of the most commonly used simulation toolkits in this context [GATE source page] (http://www.opengatecollaboration.org) [^1,2].
@@ -24,7 +31,7 @@ We refered readers interested on the generation, usage, and validation of this p
 - 50% percentile, weight, age, etc...
 - Create a read me as the ICRP example for Geant4.
 
-###### STL-based phantoms
+## 1.1 STL-based phantoms
 
 We provide 3 versions of the phantom with different lengths (**Whole Body**, **Head-Torso-Abdominal Only**, and **Head Only**) as showed on the figure below.
 
@@ -79,7 +86,7 @@ The 3 phantom versions consist of the following structures,
   <img width="862" alt="Screen Shot 2022-06-02 at 5 06 06 PM" src="https://user-images.githubusercontent.com/84809217/171738291-5b417726-5ea3-452e-90b2-b5876546448a.png">
   </p>
 
-###### Voxelized version of the STL-based phantoms
+## 1.2 Voxelized version of the STL-based phantoms
 
 We also provide voxelized versions in interfile format (16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header file) of the 3 STL-based phantoms described above. The voxelized phantoms can be used in attenuation correction for SPECT or PET reconstruction or as attenuation media or source definitionfor GATE simulation.
 
@@ -93,9 +100,9 @@ The STL-based phantoms were converted into voxelized phantoms following an appro
 
 The voxelized attenuation phantoms were generated for a voxel size of 1 <sup>3</sup>. The Whole Body voxelized phantom was of 658x280x1764 <sup>3</sup> (size of 650 MB). The Head-Torso-Abdominal Only phantom was of 658x280x956 <sup>3</sup> (size of 352 MB). The Head Only phantom was of 338x248x256 <sup>3</sup> (size of 43 MB).
 
-## Usage in GATE
+# 2. Usage in GATE
 
-###### STL-based phantoms
+## 2.1 STL-based phantoms
 
 We provide a macro *'GateSTLPhantoms.mac'* to load and simulate in GATE the STL-based attenuation phantoms along with the voxelized source defined above. 
 
@@ -171,7 +178,7 @@ The *Bronchi Tree* is a subvolume of the Lung volume,
 /gate/Body/attachPhantomSD
 ``` 
 
-###### Voxelized version of the STL-based phantoms
+## 2.2 Voxelized version of the STL-based phantoms
 
 The voxelized phantoms (interfile format) can be loaded in GATE via the following command lines, where 'VoxSource' is the source volume name,
 ```ruby
@@ -220,9 +227,9 @@ Indices in the voxelized image are translated into material via the parameters d
   
   Note, the biological materials are defined in the 'GateMaterials.db' file.
 
-## Citation of the following articles if used
+# 3. Citation of the following articles if used
 
-## Download
+# 4. Download
 
 
 [^1]: Jan et al., 2004.
