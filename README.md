@@ -265,7 +265,7 @@ The brain perfusion activity phantom can be simulated (**VoxHeadTorsoAbd_BrainPe
 <a name="SourceI123"></a>
 ## [3.2.2 Usage in GATE](#SourceI123)
 
-The voxelized phantoms (*interfile format*) can be loaded in GATE via the following command lines for a <sup>99m</sup>Tc source, where *'VoxSource'* is the source volume name,
+The voxelized phantoms (*interfile format*) can be loaded in GATE via the following command lines for a <sup>99m</sup>Tc or <sup>123</sup>I sources, where *'VoxSource'* is the source volume name,
 ```ruby
 /gate/source/addSource VoxSource voxel
 /gate/source/VoxSource/reader/insert image
@@ -521,7 +521,7 @@ The brain DaT activity phantom can be simulated (**VoxHeadTorsoAbd_DaT_Source_65
 
 ### 4.2.2 Usage in GATE
 
-The voxelized phantoms (*interfile format*) can be loaded in GATE via the following command lines for a <sup>99m</sup>Tc source, where *'VoxSource'* is the source volume name,
+The voxelized phantoms (*interfile format*) can be loaded in GATE via the following command lines for a <sup>123</sup>I source, where *'VoxSource'* is the source volume name,
 ```ruby
 /gate/source/addSource VoxSource voxel
 /gate/source/VoxSource/reader/insert image
@@ -547,7 +547,7 @@ An example of a complete source of <sup>123</sup>I gammas consisting of all the 
 
 ### 4.3.1 Description
 
-We provide the voxelized thyroid activity phantoms in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The thyroid phantoms can emulate a clinical <sup>123I</sup> or <sup>131I</sup> thyroid distribution with and without background activity. It can be used in combination of the voxelized or STL attenuation Head-Torso-Abdominal* **mesh50_XCAT** phantoms described in the previous section. The brain perfusion activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
+We provide the voxelized thyroid activity phantoms in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The thyroid phantoms can emulate a clinical <sup>123</sup>I or <sup>131</sup>I thyroid distribution with and without background activity. It can be used in combination of the voxelized or STL attenuation Head-Torso-Abdominal* **mesh50_XCAT** phantoms described in the previous section. The brain perfusion activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
 
 <p align="center">
 <img width="800" alt="Screen Shot 2023-06-21 at 12 44 30 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/c0200d4e-169e-46d8-9f3b-979913e0537d">
@@ -708,7 +708,6 @@ The voxelized phantoms (*interfile format*) can be loaded in GATE via the follow
 /gate/source/VoxSource/imageReader/translator/insert linear
 /gate/source/VoxSource/imageReader/linearTranslator/setScale 0.03 Bq
 /gate/source/VoxSource/imageReader/readFile PATH_TO/VoxWholeBody_Bone_Source_658x280x1764.h33
-#/gate/source/VoxSource/imageReader/readFile PATH_TO/VoxHeadTorsoAbd_Thyroid_NoBkg_Source_658x280x956.h33 # No Background Activity
 /gate/source/VoxSource/imageReader/verbose 1
 /gate/source/VoxSource/gps/particle gamma
 /gate/source/VoxSource/gps/ang/type iso
