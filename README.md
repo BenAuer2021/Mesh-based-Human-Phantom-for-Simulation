@@ -550,7 +550,7 @@ An example of a complete source of <sup>123</sup>I gammas consisting of all the 
 We provide the voxelized thyroid activity phantoms in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The thyroid phantoms can emulate a clinical <sup>123</sup>I or <sup>131</sup>I thyroid distribution with and without background activity. It can be used in combination of the voxelized or STL attenuation Head-Torso-Abdominal **mesh50_XCAT** phantoms described in the previous section. The brain perfusion activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
 
 <p align="center">
-<img width="800" alt="Screen Shot 2023-06-21 at 1 12 02 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/0988bdf8-b9c4-4a37-bd9e-48ae64177674">
+<img width="900" alt="Screen Shot 2023-06-21 at 1 25 53 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/e4aafc29-93c2-4fda-a1df-d219c33cfc32">
 </p>
 
 The thyroid activity phantom can be simulated (**VoxHeadTorsoAbd_Thyroid_Source_658x280x956.i33**) as being filled with uniform tracer activity in thyroid : salivary glands : background with concentration ratios of 8:5:1, respectively. We provide as well the thyroid phantom without background activity (**VoxHeadTorsoAbd_Thyroid_NoBkg_Source_658x280x956.i33**). Both phantom consist of 658x280x956 voxels of 1.0x1.0x1.0 mm<sup>3</sup> (size of 352.3 MB).
