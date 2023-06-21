@@ -17,6 +17,11 @@ Table of contents:
 - 3. Usage in GATE
   - 3.1 STL-based phantoms (mesh50_XCAT)
   - 3.2 Voxelized version of the STL-based phantoms 
+- 4. Clinical Digital Activity Phantom
+  - 4.1 Brain Perfusion
+  - 4.2 Brain DaT
+  - 4.3 Bone
+  - 4.4 Thyroid  
 ```
 
 # 1. Objective and Background
@@ -236,6 +241,10 @@ Indices in the voxelized image are translated into biological materials via the 
   | 7   | Skeleton  | *SpineBone*  |  
   
   Note, the biological materials are defined in the *'GateMaterials.db'* file available for download (*GATE_macros.zip*).
+
+
+
+  
 
 [^1]: Jan, S., Santin, G., Strul, D., Staelens, S., Assié, K., Autret, D., ... & Morel, C. (2004). GATE: a simulation toolkit for PET and SPECT. Physics in Medicine & Biology, 49(19), 4543.
 [^2]: Sarrut, D., Bardiès, M., Boussion, N., Freud, N., Jan, S., Létang, J. M., ... & Buvat, I. (2014). A review of the use and potential of the GATE Monte Carlo simulation code for radiation therapy and dosimetry applications. Medical physics, 41(6Part1), 064301.
