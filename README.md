@@ -550,7 +550,7 @@ An example of a complete source of <sup>123</sup>I gammas consisting of all the 
 We provide the voxelized thyroid activity phantoms in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The thyroid phantoms can emulate a clinical <sup>123</sup>I or <sup>131</sup>I thyroid distribution with and without background activity. It can be used in combination of the voxelized or STL attenuation Head-Torso-Abdominal **mesh50_XCAT** phantoms described in the previous section. The brain perfusion activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
 
 <p align="center">
-<img width="800" alt="Screen Shot 2023-06-21 at 12 44 30 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/c0200d4e-169e-46d8-9f3b-979913e0537d">
+<img width="800" alt="Screen Shot 2023-06-21 at 1 12 02 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/0988bdf8-b9c4-4a37-bd9e-48ae64177674">
 </p>
 
 The thyroid activity phantom can be simulated (**VoxHeadTorsoAbd_Thyroid_Source_658x280x956.i33**) as being filled with uniform tracer activity in thyroid : salivary glands : background with concentration ratios of 8:5:1, respectively. We provide as well the thyroid phantom without background activity (**VoxHeadTorsoAbd_Thyroid_NoBkg_Source_658x280x956.i33**). Both phantom consist of 658x280x956 voxels of 1.0x1.0x1.0 mm<sup>3</sup> (size of 352.3 MB).
@@ -694,7 +694,7 @@ An example of a complete source of <sup>123</sup>I gammas consisting of all the 
 We provide the voxelized bone activity phantom in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The bone phantom can emulate a clinical <sup>99mTc</sup> bone distribution. It can be used in combination of the voxelized or STL attenuation whole-body **mesh50_XCAT** phantoms described in the above. The bone activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
 
 <p align="center">
-<img width="800" alt="Screen Shot 2023-06-21 at 1 12 02 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/0988bdf8-b9c4-4a37-bd9e-48ae64177674">
+<img width="800" alt="Screen Shot 2023-06-21 at 1 23 38 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/2d4fc8d6-9e6a-4882-ba23-531fcc67d59c">
 </p>
 
 The bone activity phantom can be simulated (**VoxWholeBody_Bone_Source_658x280x1764.i33**) as being filled with uniform tracer activity in bone : background with concentration ratios of 8:1, respectively. It consists of 1764 voxels of 1.0x1.0x1.0 mm<sup>3</sup> (size of 650 MB).
