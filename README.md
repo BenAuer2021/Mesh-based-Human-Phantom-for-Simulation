@@ -244,7 +244,7 @@ Indices in the voxelized image are translated into biological materials via the 
 
 # 3. Clinical Digital Activity Phantoms
 
-We provide multiple activity phantoms to simulate clinical distribution for brain perfusion, brain DaT, bone and thyroid imaging.
+We provide multiple activity phantoms to simulate clinical distribution for brain perfusion, brain DaT, bone and thyroid imaging. The phantoms can be downloaded via the **Digital_Activity_Phantoms.zip** file.
 
 <a name="BrainPerfusion"></a>
 ## [3.1. Brain Perfusion](#BrainPerfusion)
