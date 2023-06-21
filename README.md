@@ -257,7 +257,7 @@ For additional information, please see below references,
 > - Auer, Benjamin, Navid Zeraatkar, Justin C. Goding, Arda Könik, Timothy J. Fromme, Kesava S. Kalluri, Lars R. Furenlid, Phillip H. Kuo, and Michael A. King. "Inclusion of quasi-vertex views in a brain-dedicated multi-pinhole SPECT system for improved imaging performance." Physics in Medicine & Biology 66, no. 3 (2021): [035007](https://repository.escholarship.umassmed.edu/bitstream/handle/20.500.14038/48481/Auer_et_al_2020_Phys._Med._Biol._10.1088_1361_6560_abc22e.pdf?sequence=2&isAllowed=y)
 
 <p align="center">
-<img width="800" alt="Screen Shot 2023-06-21 at 12 31 33 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/72da2ce2-9653-457a-94bd-21712cc4d480">
+<img width="800" alt="Screen Shot 2023-06-21 at 1 16 13 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/f7096657-6d83-4ead-8feb-11a2445e5369">
 </p>
 
 The brain perfusion activity phantom can be simulated (**VoxHeadTorsoAbd_BrainPerfusion_Source_658x280x956.i33**) as being filled with uniform tracer activity in striatum:grey matter:white matter : lungs : liver : background with concentration ratio of 10.1:9.3:2.3:6.0:11.4:1. It consists of 658x280x956 voxels of 1.0x1.0x1.0 mm<sup>3</sup> (size of 352.3 MB).
@@ -291,8 +291,8 @@ The default position of the voxelized source is in the 1<sup>st</sup> quarter, s
 The following example shows how to define a source of <sup>123</sup>I gammas. The gamma emission data is from the IAEA database: https://www-nds.iaea.org/relnsd/vcharthtml/VChartHTML.html.
 Note that this example shows the gamma emissions only, so the simulation output will be missing the X-ray peaks seen in true <sup>123</sup>I spectra. 
 
-`VS_gamma` is the name of the voxelised gamma source 
 ```ruby
+`VS_gamma` is the name of the voxelised gamma source 
 # Set verbosity (2 = every event)
 # Good to set to 2 initially to check output is as expected
 /gate/source/VS_gamma/gps/verbose 0
@@ -502,6 +502,7 @@ Note that this example shows the gamma emissions only, so the simulation output 
 
 /gate/source/list
 /gate/source/VS_gamma/dump 1
+```
 
 ## 4.2 Brain Dopamine DaT
 
@@ -686,46 +687,6 @@ An example of a complete source of <sup>123</sup>I gammas consisting of all the 
 /gate/source/VS_gamma/dump 1
 
 ```
-
-## 4.2 Brain Dopamine DaT
-
-### 4.2.1 Description
-
-We provide the voxelized brain DaT activity phantom in interfile format (*16-bit unsigned integer, \*.i33 for raw data and \*.h33 for the header files*). The brain DaT phantom can emulate a clinical <sup>123I</sup>-Ioflupane brain dopamine distribution as imaged 4h post injection. It can be used in combination of the voxelized or STL attenuation Head-Torso-Abdominal* **mesh50_XCAT** phantoms described in the previous section. The brain perfusion activity phantom is co-registered with these attenuation phantom, thus no translation in GATE for simulation is needed to align the activity and attenuation phantoms.
-
-For additional information, please see below references,
-> - Auer, Benjamin, Navid Zeraatkar, Justin C. Goding, Arda Könik, Timothy J. Fromme, Kesava S. Kalluri, Lars R. Furenlid, Phillip H. Kuo, and Michael A. King. "Inclusion of quasi-vertex views in a brain-dedicated multi-pinhole SPECT system for improved imaging performance." Physics in Medicine & Biology 66, no. 3 (2021): [035007](https://repository.escholarship.umassmed.edu/bitstream/handle/20.500.14038/48481/Auer_et_al_2020_Phys._Med._Biol._10.1088_1361_6560_abc22e.pdf?sequence=2&isAllowed=y)
-
-<p align="center">
-<img width="800" alt="Screen Shot 2023-06-21 at 12 44 30 AM" src="https://github.com/BenAuer2021/Mesh-based-Human-Phantom-for-Simulation/assets/84809217/c0200d4e-169e-46d8-9f3b-979913e0537d">
-</p>
-
-The brain DaT activity phantom can be simulated (**VoxHeadTorsoAbd_DaT_Source_658x280x956.i33**) as being filled with uniform tracer activity in striatum : salivary glands : lungs : liver : background with concentration ratio of 8:4:1.8:6.2:1, respectively. It consists of 658x280x956 voxels of 1.0x1.0x1.0 mm<sup>3</sup> (size of 352.3 MB).
-
-## 7.2 Usage in GATE
-
-The voxelized phantoms (*interfile format*) can be loaded in GATE via the following command lines for a <sup>99m</sup>Tc source, where *'VoxSource'* is the source volume name,
-```ruby
-/gate/source/addSource VoxSource voxel
-/gate/source/VoxSource/reader/insert image
-/gate/source/VoxSource/imageReader/translator/insert linear
-/gate/source/VoxSource/imageReader/linearTranslator/setScale 0.03 Bq
-/gate/source/VoxSource/imageReader/readFile PATH_TO/VoxHeadTorsoAbd_DaT_Source_658x280x956.h33
-/gate/source/VoxSource/imageReader/verbose 1
-/gate/source/VoxSource/gps/particle gamma
-/gate/source/VoxSource/gps/ang/type iso
-/gate/source/VoxSource/gps/ang/mintheta 0.0 deg
-/gate/source/VoxSource/gps/ang/maxtheta 180.0 deg
-/gate/source/VoxSource/gps/ang/minphi 0.0  deg
-/gate/source/VoxSource/gps/ang/maxphi 360.0 deg
-/gate/source/VoxSource/gps/energytype Mono
-/gate/source/VoxSource/gps/ene/mono 159.0 keV # For I-123 primary emission
-/gate/source/VoxSource/setIntensity 1
-/gate/source/VoxSource/setPosition -329.0 -140.0 -478.0 mm
-/gate/source/VoxSource/dump 1
-```
-An example of a complete source of <sup>123</sup>I gammas consisting of all the gammas emissions can be found in the [previous section](SourceI123).
-
 ## 4.4 Bone
 
 ### 4.4.1 Description
