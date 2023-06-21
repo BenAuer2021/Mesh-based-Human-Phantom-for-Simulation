@@ -20,8 +20,8 @@ Table of contents:
 - 4. Clinical Digital Activity Phantoms
   - 4.1 Brain Perfusion
   - 4.2 Brain DaT
-  - 4.3 Bone
-  - 4.4 Thyroid  
+  - 4.3 Thyroid
+  - 4.4 Bone  
 ```
 
 # 1. Objective and Background
