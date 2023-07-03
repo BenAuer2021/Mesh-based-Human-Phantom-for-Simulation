@@ -2,7 +2,7 @@
 
 The **M**esh-based **XCAT** phantom (**mesh50_XCAT**) is developed and maintained by Auer Benjamin from the Brigham and Women's Hospital and Harvard Medical School, Boston, MA, USA.
 
-**Contacts:** bauer@bwh.harvard.edu.
+**Contact:** bauer@bwh.harvard.edu.
 
 The **mesh50_XCAT** phantom is based on the 4D extended cardiac-torso digital anthropomorphic ([XCAT](https://otc.duke.edu/industry-investors/available-technologies/xcat/)) human phantom for a 50<sup>th</sup> percentile American male based on the [PeopleSize anthropometric database](https://openerg.com/).
 
