@@ -43,7 +43,7 @@ We refer readers interested on the generation, usage, and validation of the **me
 
 > - Auer, B., Könik, A., Kalluri, K., De Beenhouwer, J., Furenlid, L. R., & King, M. A. (2018, November). Preliminary evaluation of surface mesh modeling of system geometry, anatomy phantom, and source activity for GATE simulations. In 2018 IEEE Nuclear Science Symposium and Medical Imaging Conference Proceedings (NSS/MIC) (pp. 1-3). IEEE.
 
-> In addition to the XCAT original publication: Segars, W. P., & Tsui, B. M. (2009). MCAT to XCAT: The evolution of 4-D computerized phantoms for imaging research. Proceedings of the IEEE, 97(12), 1954-1968.
+> - In addition to the XCAT original publication: Segars, W. P., & Tsui, B. M. (2009). MCAT to XCAT: The evolution of 4-D computerized phantoms for imaging research. Proceedings of the IEEE, 97(12), 1954-1968.
 
 An extended version of the **mesh50_XCAT** phantom was used in the following publications[^5][^6].
 
